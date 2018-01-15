@@ -1,7 +1,14 @@
 #!/bin/bash
 
+# lemme put some color in your life
+MAGEN='\033[0;35m'
+NCN='\033[0m'
+BOLD='\033[1m'
+GREEN='\033[0;32m'
+
 # change this to the paths for the .sites file and the .swoosh script
-alias srcsites="source ~/swoosh/.sites;"
+SITESPATH="~/swoosh/.sites"
+alias srcsites="source $SITESPATH;"
 alias src="source ~/swoosh/swoosh.sh"
 
 newswoosh() {
@@ -20,11 +27,12 @@ newswoosh() {
         echo -e "Thanks, boo. And what's the host?"
         read hostname
         newsite="$newsite$hostname"
-        echo "$newsite" >> ~/swoosh/.sites
+        echo "$newsite" >> $SITESPATH
         srcsites
+        echo -e "All set, love. Type ${GREEN}${BOLD}swoosh $K ${NCN}${NCN}for ${MAGEN}${BOLD}${sites[$K]}${NCN}${NCN}";
         return 
     else
-        echo "sites[$1]=$2@$3" >> ~/swoosh/.sites
+        echo "sites[$1]=$2@$3" >> $SITESPATH
         srcsites
         return
     fi
