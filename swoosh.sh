@@ -20,11 +20,11 @@ newswoosh() {
         echo -e "Thanks, boo. And what's the host?"
         read hostname
         newsite="$newsite$hostname"
-        echo "$newsite" >> ~/.sites
+        echo "$newsite" >> ~/swoosh/.sites
         srcsites
         return 
     else
-        echo "sites[$1]=$2@$3" >> ~/.sites
+        echo "sites[$1]=$2@$3" >> ~/swoosh/.sites
         srcsites
         return
     fi
