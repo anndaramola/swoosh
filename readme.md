@@ -11,4 +11,5 @@ Installation
     `source "$HOME/swoosh/.sites" # load sites;`
     `source "$HOME/swoosh/swoosh.sh" # load swoosh;`
 * Add your first site with the `newswoosh` command.
+* Swoosh into your sites with the `swoosh SITENAME` command.
 * Happy swooshing!
