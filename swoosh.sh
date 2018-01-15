@@ -1,7 +1,8 @@
-#!/bin/bash 
+#!/bin/bash
+
 # change this to the paths for the .sites file and the .swoosh script
-alias srcsites="source ~/.sites;"
-alias src="source ~/.swoosh.sh"
+alias srcsites="source ~/swoosh/.sites;"
+alias src="source ~/swoosh/.swoosh.sh"
 
 newswoosh() {
     if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
