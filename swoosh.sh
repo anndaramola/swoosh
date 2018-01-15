@@ -2,7 +2,7 @@
 
 # change this to the paths for the .sites file and the .swoosh script
 alias srcsites="source ~/swoosh/.sites;"
-alias src="source ~/swoosh/.swoosh.sh"
+alias src="source ~/swoosh/swoosh.sh"
 
 newswoosh() {
     if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
