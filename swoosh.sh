@@ -9,7 +9,7 @@ GREEN='\033[0;32m'
 # change this to the paths for the .sites file and the .swoosh script
 SITESPATH="~/swoosh/.sites"
 alias srcsites="source $SITESPATH;"
-alias src="source ~/swoosh/swoosh.sh"
+srcsites
 
 newswoosh() {
     if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
@@ -28,8 +28,8 @@ newswoosh() {
         read hostname
         newsite="$newsite$hostname"
         echo "$newsite" >> $SITESPATH
+        echo -e "All set, love. Type ${GREEN}${BOLD}swoosh $sitename ${NCN}${NCN}for ${MAGEN}${BOLD}${sites[$sitename]}${NCN}${NCN}";
         srcsites
-        echo -e "All set, love. Type ${GREEN}${BOLD}swoosh $K ${NCN}${NCN}for ${MAGEN}${BOLD}${sites[$K]}${NCN}${NCN}";
         return 
     else
         echo "sites[$1]=$2@$3" >> $SITESPATH
@@ -41,9 +41,14 @@ newswoosh() {
 swoosh() {
     if [ -z "$1" ]; then
         srcsites
-        echo "Sorry, babe, I need a site to swoosh. Choose one:"
+        echo "Sorry, babe, I need a site to swoosh."
+        if [ ${#sites[@]} -eq 0 ]; then
+            echo "Run newswoosh to add a site."
+            return
+        fi
+        echo "Choose one:"
         for K in "${!sites[@]}"; do
-            echo -e "Write ${GREEN}${BOLD}swoosh $K ${NCN}${NCN}for ${MAGEN}${BOLD}${sites[$K]}${NCN}${NCN}";
+            echo -e "Type ${GREEN}${BOLD}swoosh $K ${NCN}${NCN}for ${MAGEN}${BOLD}${sites[$K]}${NCN}${NCN}";
         done
     else
         echo "Swoooooooooooooooooooooooooooooooooosh"
